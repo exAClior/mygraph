@@ -1,0 +1,31 @@
+#+title: Plan
+
+
+* TODO Implement Core Function
+1. Graph Data Structure
+   a. Why we need type class?
+   b. How does total function improve code reuse?
+   c. What is this type signature in function
+            #+begin_src haskell
+    edge :: Graph g => Vertex g -> Vertex g -> g
+      -- meaning g must be of class Graph
+            #+end_src
+   d. What is a convinent interface for graph construction? In other words, what
+      is the following code doing?
+#+begin_src haskell
+graph :: Graph g => [Vertex g] -> [(Vertex g, Vertex g)] -> g
+graph vs es = overlay (vertices vs) (edges es)
+
+edges :: Graph g => [(Vertex g, Vertex g)] -> g
+edges = foldr overlay empty . map (uncurry edge)
+#+end_src
+
+
+
+2. Universal Operations
+   a. Overlay
+   b. Connect
+3. How to do test properly?
+
+* HOLD Implement Algorithms
+ Read the book **A Guide to Graph Algorithms**

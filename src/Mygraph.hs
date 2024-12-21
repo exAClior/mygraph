@@ -7,8 +7,21 @@ See README for more info
 -}
 
 module Mygraph
-    ( projectName
+    ( projectName,
+      Graph
+
     ) where
+
+import GHC.Generics
+
+
+data Graph a = Empty
+               | Vertex a
+               | Overlay (Graph a) (Graph a)
+               | Connect (Graph a) (Graph a)
+               deriving (Show, Generic)
+
+
 
 
 projectName :: String
